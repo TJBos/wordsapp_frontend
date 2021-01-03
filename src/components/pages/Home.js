@@ -7,12 +7,11 @@ import './Home.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-
 function Home() {
-    return (
-        <>
-            <Hero />
-            <div className="heading">
+  return (
+    <>
+      <Hero />
+      <div className="heading">
         <img src="https://i.imgur.com/0KsnPLk.png" height="100px" />
         <h1><b>What's the world saying about ASL?</b></h1>
       </div>
@@ -32,7 +31,7 @@ function Home() {
                     }}
                     options={{
                       chrome: 'noheader nofooter',
-                      height: '350',
+                      height: '250',
                       width: '5rem',
                     }}
                   />
@@ -40,8 +39,8 @@ function Home() {
               </Card.Body>
             </Card>
           </Col>
-          <Col className="tweet">
-            <Card className="card">
+          <Col className="tweet-middle">
+            <Card className="card-middle">
               <Card.Body>
                 <Card.Header style={{
                   color: '#34B8FD'
@@ -55,7 +54,7 @@ function Home() {
                     options={{
                       chrome: 'noheader nofooter',
                       height: '350',
-                      width: '5rem',
+                      width: '8rem',
                     }}
                   />
                 </Card.Text>
@@ -76,7 +75,7 @@ function Home() {
                     }}
                     options={{
                       chrome: 'noheader nofooter',
-                      height: '350',
+                      height: '250',
                       width: '5rem',
                     }}
                   />
@@ -86,8 +85,19 @@ function Home() {
           </Col>
         </Row>
       </Container>
-        </>
-    )
-}
+      <footer class="footer-distributed">
+        <div class="footer-right">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-twitter-square"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github-square"></i></a>
+        </div>
+        <div class="footer-left">
+          <p>&copy; 2020</p>
+        </div>
+      </footer>
 
+    </>
+  )
+}
 export default Home;
