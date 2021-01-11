@@ -1,16 +1,16 @@
-# SIMPLE REACT TEMPLATE WITH ROUTER
+# SignSource
 
-#### Created by Alex Merced of AlexMercedCoder.com/devNursery.com
+## A collaborative project for General Assembly
 
-This is a minimalistic webpack react build with Router. Best for practicing react, doesn't have many of the testing and post-processing features other builds have. Although you can add webpack and babel plugins as you wish if you want to use this as a starting place for a more powerful build setup.
+A handy pocketbook reference for ASL signs. Users can add a sign to retrieve later. Connection to YouTube API shows results on how to sign a saved entry. App is being built with input of teachers and parents, to facilitate communication with verbally challenged children.
 
-Make sure to remove the git repository
+## Technologies
 
-`sudo rm -r .git` from the root folder
+Built with Express/Node and React. Using MongoDB database and JWT Auth. Styling with Bootstrap and custom CSS.
 
-Otherwise...
+# links
 
-`npm run dev` to run dev server
-`npm run build` to build into build folder
+Backend repo:
+https://github.com/TJBos/wordsapp_backend
 
-- sass is enabled, so feel free to use sass files
+Live site:

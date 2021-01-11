@@ -1,0 +1,29 @@
+
+[[redirects]]
+  from = "/"
+  to = "/"
+
+  [[redirects]]
+  from = "/profile/learningpath"
+  to = "/profile/learningpath"
+
+  [[redirects]]
+  from = "/profile/learningpath/create"
+  to = "/profile/learningpath/create"
+
+  [[redirects]]
+  from = "/profile/learningpath/edit"
+  to = "/profile/learningpath/edit"
+
+  [[redirects]]
+  from = "/profile/learningpath/videos"
+  to = "/profile/learningpath/videos"
+
+
+  [[redirects]]
+  from = "/signup"
+  to = "/signup"
+
+  [[redirects]]
+  from = "/login"
+  to = "/login"
