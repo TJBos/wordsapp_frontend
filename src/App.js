@@ -6,7 +6,7 @@ import "./App.css";
 import Home from "./components/pages/Home";
 import Signup from "./components/pages/Join/Signup";
 import Discover from "./components/pages/Discover";
-import Login from "./components/pages/Join/Login"
+import Login from "./components/pages/Join/Login";
 
 import LearningPaths from "./components/pages/LearningPaths/LearningPaths";
 
@@ -14,8 +14,7 @@ import Display from "./components/Display";
 import Form from "./components/Form";
 import Videos from "./components/Videos";
 
-export const GlobalCtx = React.createContext(null)
-
+export const GlobalCtx = React.createContext(null);
 
 function App() {
   //Variable to hold url
@@ -29,10 +28,10 @@ function App() {
     //console.log(user)
     if (token){
       setgState({...gState, token: token.token, user: token.username})
+
     }
-  }, [])
-  
-  
+  }, []);
+
   //State to Hold Words
   const [words, setWords] = React.useState([]);
 
@@ -50,8 +49,8 @@ function App() {
       method: "get",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `bearer ${gState.token}`
-      }
+        Authorization: `bearer ${gState.token}`,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -70,7 +69,7 @@ function App() {
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${gState.token}`
+        authorization: `bearer ${gState.token}`,
       },
       body: JSON.stringify(newWord),
     }).then((response) => {
@@ -84,7 +83,7 @@ function App() {
       method: "put",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${gState.token}`
+        authorization: `bearer ${gState.token}`,
       },
       body: JSON.stringify(word),
     }).then(() => {
@@ -102,7 +101,7 @@ function App() {
       method: "delete",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `bearer ${gState.token}`
+        authorization: `bearer ${gState.token}`,
       },
     }).then(() => {
       // don't need the response from the post but will be using the .then to update the list of words
@@ -111,68 +110,75 @@ function App() {
   };
 
   const loginCheck = () => {
-    if (gState.token){
-      return <NavbarLogin />
+    if (gState.token) {
+      return <NavbarLogin />;
     } else {
-      return <Navbar />
+      return <Navbar />;
     }
-  }
-
+  };
 
   return (
     <GlobalCtx.Provider value={{ gState, setgState }}>
-    <>
-      {loginCheck()}
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/login" exact component={Login} />
+      <>
+        {loginCheck()}
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/signup" exact component={Signup} />
+          <Route path="/login" exact component={Login} />
 
-        <Route
-          exact
-          path="/profile/learningpath"
-          render={(rp) => ( gState.token ?
-            <Display
-              selectWord={selectWord}
-              deleteWord={deleteWord}
-              {...rp}
-              words={words}
-            /> : <h1>Not Logged In</h1>
-          )}
-        />
-        <Route
-          exact
-          path="/profile/learningpath/create"
-          render={(rp) => (
-            <Form
-              {...rp}
-              label="Add a Word"
-              word={{}}
-              handleSubmit={handleCreate}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/profile/learningpath/edit"
-          render={(rp) => (
-            <Form
-              {...rp}
-              label="Update a Word"
-              word={selectedWord}
-              handleSubmit={handleUpdate}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/profile/learningpath/videos"
-          render={(rp) => <Videos {...rp} word={selectedWord} />}
-        />
-      </Switch>
-    </>
+          <Route
+            exact
+            path="/profile/learningpath"
+            render={(rp) =>
+              gState.token ? (
+                <Display
+                  selectWord={selectWord}
+                  deleteWord={deleteWord}
+                  {...rp}
+                  words={words}
+                />
+              ) : (
+                <h1>Not Logged In</h1>
+              )
+            }
+          />
+          <Route
+            exact
+            path="/profile/learningpath/create"
+            render={(rp) => (
+              <Form
+                {...rp}
+                label="Add a Word"
+                word={{}}
+                handleSubmit={handleCreate}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/profile/learningpath/edit"
+            render={(rp) => (
+              <Form
+                {...rp}
+                label="Update a Word"
+                word={selectedWord}
+                handleSubmit={handleUpdate}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/profile/learningpath/videos"
+            render={(rp) => <Videos {...rp} word={selectedWord} />}
+          />
+        </Switch>
+      </>
     </GlobalCtx.Provider>
   );
 }
 
 export default App;
+
+//[[redirects]]
+//from = "/*"
+//to = "/index.html"
